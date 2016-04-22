@@ -3,7 +3,7 @@ This script process the output of grep
 and you can watch the matching files by number.
 
 # How to Use
-place this script to your /usr/local/bin or ~/bin and execute  
+Place this script to your /usr/local/bin or ~/bin and execute  
 ```
 $ grepx pattern
 ```
