@@ -29,13 +29,17 @@ WHITE='\033[1;37m'
 
 Usage()
 {
-    echo "Usage: $0 pattern"
+    echo "Usage: $0 PATTERN FLAG"
     echo "When finishing search, you can press the [1-n/v/s/n/q] key,"
     echo "       1-n: press the number and open the file"
     echo "       v: open with vim"
     echo "       s: open with subl"
     echo "       n: open with notepad++"
     echo "       q: quit"
+    echo ""
+    echo "FLAG"
+    echo "       -i :ignore case"
+    echo "       -w: match word"
 }
 
 onClose()
@@ -58,8 +62,17 @@ fi
 
 trap 'onInterrupt' INT # Ctrl-c sent SIGINT
 
+if [ "$2" != "" ]; then
+    FLAG="$2"
+fi
+
 # FIXME display wrong when one file matching, muti files match is ok.
-DATA=$(find . \( -name '.?*' -o -name tags \) -prune -o -type f -exec grep -in "$1" {} +)
+# use grep
+#DATA=$(find . \( -name '.?*' -o -name tags \) -prune -o -type f -exec grep $FLAG -n "$1" {} +)
+# use ack
+#DATA=$(ack "$1" $FLAG --nogroup)
+# use ag
+DATA=$(ag "$1" $FLAG --nogroup)
 echo "$DATA" > output_file
 
 if [ -z "$DATA" ]; then
