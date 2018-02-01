@@ -27,9 +27,9 @@ LIGHT_PURPLE='\033[1;35m'
 LIGHT_CYAN='\033[1;36m'
 WHITE='\033[1;37m'
 
-Usage()
+function usage()
 {
-    echo "Usage: $0 PATTERN FLAG"
+    echo "Usage: $0 PATTERN [FLAG]"
     echo "When finishing search, you can press the [1-n/v/s/n/q] key,"
     echo "       1-n: press the number and open the file"
     echo "       v: open with vim"
@@ -42,21 +42,21 @@ Usage()
     echo "       -w: match word"
 }
 
-onClose()
+function onClose()
 {
     rm output_file &> /dev/null
     echo "exit"
     exit
 }
 
-onInterrupt()
+function onInterrupt()
 {
     echo "Ctrl-c Interrupt"
     onClose
 }
 
 if [ $# -eq 0 ]; then
-    Usage
+    usage
     exit 1
 fi
 
