@@ -11,10 +11,11 @@ execute
 ```
 $ grepx PATTERN [FLAG]
 ```
-When finishing search, you can press the [1-n/v/s/n/q] key,  
+When finishing search, you can press the [1-n/v/s/c/n/q] key,  
 1-n: press the number and open the file  
 v: open with vim  
 s: open with subl  
+c: open with visual studio code  
 n: open with notepad++  
 q: quit  
 

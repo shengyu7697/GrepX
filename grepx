@@ -34,6 +34,7 @@ function usage()
     echo "       1-n: press the number and open the file"
     echo "       v: open with vim"
     echo "       s: open with subl"
+    echo "       c: open with visual studio code"
     echo "       n: open with notepad++"
     echo "       q: quit"
     echo ""
@@ -108,7 +109,7 @@ rm output_file
 # choose
 EDITOR="vim"
 while [ 0 ]; do
-    echo -n "Now which one do you want to open ($EDITOR)? [1-$COUNT/v/s/n/q] "
+    echo -n "Now which one do you want to open ($EDITOR)? [1-$COUNT/v/s/c/n/q] "
     read KEY
     if [ $KEY -gt 0 -a $KEY -lt $(($COUNT+1)) 2> /dev/null ]; then
         # stderr output when $KEY is not a number
@@ -116,6 +117,8 @@ while [ 0 ]; do
             vim +${LINENUMBER[$KEY]} ${FILENAME[$KEY]}
         elif [ "$EDITOR" == "subl" ]; then
             subl ${FILENAME[$KEY]}:${LINENUMBER[$KEY]}
+        elif [ "$EDITOR" == "code" ]; then
+            code -g ${FILENAME[$KEY]}:${LINENUMBER[$KEY]}
         elif [ "$EDITOR" == "notepad++" ]; then
             notepad++ ${FILENAME[$KEY]} -n${LINENUMBER[$KEY]}
         fi
@@ -123,6 +126,8 @@ while [ 0 ]; do
         EDITOR="vim"
     elif [ "$KEY" == "s" ]; then
         EDITOR="subl"
+    elif [ "$KEY" == "c" ]; then
+        EDITOR="code"
     elif [ "$KEY" == "n" ]; then
         EDITOR="notepad++"
     elif [ "$KEY" == "q" ]; then
