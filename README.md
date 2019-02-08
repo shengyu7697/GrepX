@@ -32,6 +32,11 @@ flag:
     + visual studio code
     + notepad++
 
+- Support many search command tools:
+    + grep
+    + ack-grep
+    + silversearcher-ag (recommand)
+
 ## System Requirement
 Windows, Mac OS or Linux  
 
