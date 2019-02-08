@@ -69,11 +69,12 @@ fi
 
 # FIXME display wrong when one file matching, muti files match is ok.
 # use grep
-#DATA=$(find . \( -name '.?*' -o -name tags \) -prune -o -type f -exec grep $FLAG -n "$1" {} +)
+DATA=$(find . \( -name '.?*' -o -name tags \) -prune -o -type f -exec grep $FLAG -n "$1" {} +)
 # use ack
 #DATA=$(ack "$1" $FLAG --nogroup)
 # use ag
-DATA=$(ag "$1" $FLAG --nogroup)
+#DATA=$(ag "$1" $FLAG --nogroup)
+
 echo "$DATA" > output_file
 
 if [ -z "$DATA" ]; then
