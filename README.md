@@ -24,3 +24,16 @@ q: quit
 flag:  
 -i :ignore case  
 -w: match word  
+
+## Features
+- Support many editors:
+    + vim
+    + sublime
+    + visual studio code
+    + notepad++
+
+## System Requirement
+Windows, Mac OS or Linux  
+
+## License
+GrepX is published under the MIT license.  
