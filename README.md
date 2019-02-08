@@ -1,6 +1,8 @@
 # GrepX
 This script process the output of grep  
-and you can watch the matching files by number.
+and you can watch the matching files by number.  
+
+![demo](https://raw.github.com/shengyu7697/GrepX/master/demo.gif)  
 
 # How to Use
 Place this script to your /usr/local/bin or ~/bin  
